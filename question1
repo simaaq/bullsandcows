@@ -1,4 +1,4 @@
-#Question3
+#Question1
 
 #number of cows
 number_cows <- function(user_choice, computer_choice, bulls) {
