@@ -1,4 +1,13 @@
-#Question1
+#Question2
+
+#print the computer's response to user
+do_response <- function(bulls, attempts) {
+  if(bulls == 4) {
+    print(paste("You won in",attempts,"attempt(s)!"))
+  } else {
+    print(paste("You lost in", attempts, "attempt(s)!"))
+  }
+}
 
 #number of cows
 number_cows <- function(user_choice, computer_choice, bulls) {
@@ -25,15 +34,6 @@ generate_computer_vector <- function() {
   return(computer_choice)
 }
 
-#print the computer's response to user
-do_response <- function(bulls, attempts) {
-  if(bulls == 4) {
-    print(paste("You won in",attempts,"attempt(s)!"))
-  } else {
-    print(paste("You lost in", attempts, "attempt(s)!"))
-  }
-}
-
 #prompt the user to input a guess and tell the user how many guesses they remain
 get_guess <- function(bulls, cows, attempts, total_attempts, wrong_attempts, computer_choice) {
   print(paste("Now you should input 4 digits for bulls & cows guess game, you just have", total_attempts,"chances!"))
@@ -48,6 +48,14 @@ get_guess <- function(bulls, cows, attempts, total_attempts, wrong_attempts, com
       cat("\n",bulls," Bull(s) and ",cows, " Cow(s)\n")
       if(bulls == 4) {
         break
+      }
+    } else {
+      print("You input number is wrong(four digits), please input again!")
+      wrong_attempts = wrong_attempts + 1
+      if(wrong_attempts == 3) {
+        print("You input illegal number three times, game over!")
+        break
+      }
     }
     if(attempts == total_attempts) {
       break
@@ -69,5 +77,21 @@ bulls_and_cows <- function() {
 }
 
 bulls_and_cows()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
