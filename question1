@@ -38,7 +38,7 @@ generate_computer_vector <- function() {
 get_guess <- function(bulls, cows, attempts, total_attempts, wrong_attempts, computer_choice) {
   print(paste("Now you should input 4 digits for bulls & cows guess game, you just have", total_attempts,"chances!"))
   while (bulls != 4) {
-    number_string = readline("please enter the four numbers >")
+    number_string = readline("please enter the four numbers with no duplicate digits or 0s: >")
     attempts <- attempts + 1
     if(nchar(number_string) == 4) {
       user_choice = as.integer(unlist(strsplit(number_string,"")[[1]]))
@@ -53,7 +53,7 @@ get_guess <- function(bulls, cows, attempts, total_attempts, wrong_attempts, com
       print("You input number is wrong(four digits), please input again!")
       wrong_attempts = wrong_attempts + 1
       if(wrong_attempts == 3) {
-        print("You input illegal number three times, game over!")
+        print("You have consecutively input 3 times incorrect number, game over!")
         break
       }
     }
@@ -77,21 +77,6 @@ bulls_and_cows <- function() {
 }
 
 bulls_and_cows()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
