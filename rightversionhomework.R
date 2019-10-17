@@ -49,18 +49,18 @@ get_guess <- function(bulls, cows, attempts, total_attempts, wrong_attempts, com
         break
       }
     } else {
-      error = 0
-      while(error<3){
+      wrongattemp = 0
+      while(wrongattemp<3){
         user_choice <- get_guess(computer_choice, total_attempts, attempts)
         if(length(user_choice)>4){
           print("You have input too long!")
         }else if(length(user_choice)<4){
           print("You have input too short!")
         }else break
-        error = error + 1
+        wrongattemp = wrongattemp + 1
         attempts = attempts + 1
       }
-      if(error==3){
+      if(wrongattemp==3){
         print("You have consecutively input 3 times incorrect number, game over!")
         break
       }
@@ -80,8 +80,8 @@ bulls_and_cows <- function() {
   attempts = 0
   total_attempts = 10
   computer_choice = generate_computer_vector()
-  error = 0
-  get_guess(bulls, cows, attempts, total_attempts, error, computer_choice)
+  wrongattemp = 0
+  get_guess(bulls, cows, attempts, total_attempts, wrongattemp, computer_choice)
 }
 
 bulls_and_cows()
